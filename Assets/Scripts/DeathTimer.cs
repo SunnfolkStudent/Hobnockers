@@ -20,7 +20,7 @@ public class DeathTimer : MonoBehaviour
 
         if (currentTime <= 0f)
         {
-            SceneManager.LoadScene("MainScene");
+            SceneManager.LoadScene(0);
         }
     }
 }

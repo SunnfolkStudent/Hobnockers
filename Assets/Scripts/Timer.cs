@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
 
         if (currentTime <= 0f)
         {
-            SceneManager.LoadScene("YouDied");
+            SceneManager.LoadScene(1);
         }
     }
 }
