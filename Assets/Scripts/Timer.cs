@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    [SerializeField] float speedOfTime;
+    public float speedOfTime;
     private float timeLimit = 20f;
-    private float currentTime;
+    [SerializeField] private  float currentTime;
     private float otherCurrentTime;
+    private float currentTimeOnEnterIf;
+    private bool somethingCheckThingy = true;
 
     public TMP_Text textThingy;
     void Start()
@@ -29,6 +31,25 @@ public class Timer : MonoBehaviour
         if (currentTime <= 0f)
         {
             SceneManager.LoadScene(1);
+        }
+
+        if (speedOfTime == 1f)
+        {
+            somethingCheckThingy = true;
+        }
+
+        if (speedOfTime < 1f)
+        {
+            if (somethingCheckThingy == true)
+            {
+                currentTimeOnEnterIf = currentTime - 2.5f;
+                somethingCheckThingy = false;
+            }
+
+            if (currentTimeOnEnterIf >= currentTime)
+            {
+                speedOfTime = 1f;
+            }
         }
     }
 }
